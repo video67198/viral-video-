@@ -1,185 +1,94 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trend VideoTube</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            background-color: #2b1055;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ভাইরাল ভিডিও</title>
 
-        /* পপআপ কন্টেইনার */
-        .popup-card {
-            background: linear-gradient(to bottom, #ffe033, #ffd000);
-            width: 340px;
-            border-radius: 25px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            position: relative;
-            border: 3px solid #fff;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        /* নতুন নোটিশ টেক্সট স্টাইল */
-        .top-notice {
-            font-size: 15px;
-            font-weight: bold;
-            color: #000;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
+body{
+    font-family:Arial,sans-serif;
+    background:#f2f2f2;
+}
 
-        /* ক্লোজ বাটন */
-        .close-btn {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background: #000;
-            color: #fff;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            cursor: pointer;
-            border: 2px solid #fff;
-        }
+.container{
+    max-width:700px;
+    margin:20px auto;
+    padding:10px;
+}
 
-        /* ব্যানার ইমেজ */
-        .banner-img {
-            width: 100%;
-            border-radius: 15px;
-            border: 2px solid #000;
-            object-fit: cover;
-        }
+.card{
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
 
-        .title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #000;
-            margin: 15px 0 5px 0;
-        }
+.caption{
+    background:#ff0000;
+    color:#fff;
+    text-align:center;
+    padding:12px;
+    font-size:20px;
+    font-weight:bold;
+}
 
-        .counter-badge {
-            background: #222;
-            color: #fff;
-            padding: 5px 15px;
-            border-radius: 20px;
-            display: inline-block;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
+.caption span{
+    display:block;
+    font-size:15px;
+    margin-top:5px;
+}
 
-        .instruction {
-            color: #333;
-            font-size: 13px;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
+.card img{
+    width:100%;
+    display:block;
+}
 
-        /* বাটন স্টাইল */
-        .action-btn {
-            background: #1a1a1a;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 15px;
-            cursor: pointer;
-            width: 100%;
-            box-shadow: 0 5px 0px #000;
-            transition: all 0.2s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-        }
+.btn{
+    display:block;
+    margin:15px;
+    padding:14px;
+    background:#28a745;
+    color:#fff;
+    text-align:center;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+}
 
-        .action-btn:active {
-            transform: translateY(4px);
-            box-shadow: 0 1px 0px #000;
-        }
+.btn:hover{
+    background:#218838;
+}
+</style>
 
-        /* সফল বাটন (সবুজ) */
-        .action-btn.success {
-            background: #00875a;
-            box-shadow: 0 5px 0px #005236;
-        }
-    </style>
 </head>
 <body>
 
-    <div class="popup-card">
-        <div class="close-btn">X</div>
-        
-        <!-- আপনার দেওয়া নতুন মোটা লেখাটি এখানে যুক্ত করা হয়েছে -->
-        <div class="top-notice">
-            টেলিগ্রাম সব নতুন পুরোনো ভিডিও দেয়া আছে ভিডিও দেখতে হলে আড ভিজিট করুন ২০ সেগেনট
-        </div>
-        
-        <!-- ইমেজ ব্যানার -->
-        <img src="https://i.postimg.cc/zBv7q2hL/1783954916395.jpg" alt="Banner" class="banner-img">
-        
-        <div class="title">নতুন লিংক ভাইরাল</div>
-        
-        <div class="counter-badge" id="view-count">Watched: 0 / 1</div>
-        
-        <div class="instruction" id="status-text">Watch the ad completely to unlock.</div>
-        
-        <!-- ডাইরেক্ট অ্যাড লিংক -->
-        <a href="https://www.effectivecpmnetwork.com/rxpxf1ikn?key=14d3589a10b3e9d095c578a9e5a2d70e" target="_blank" class="action-btn" id="main-btn" onclick="startTimer()">
-            ▶ Watch Ad
-        </a>
-    </div>
+<div class="container">
 
-<script>
-    let timeLeft = 20; 
-    let timerStarted = false;
+<div class="card">
+<div class="caption">
+🔥 ভাইরাল ভিডিও 🔥
+<span>সম্পূর্ণ ভিডিও দেখতে নিচের 🎥 ভিডিও দেখুন বাটনে ক্লিক করুন 👇</span>
+</div>
 
-    function startTimer() {
-        if (timerStarted) return; 
-        timerStarted = true;
-        
-        const mainBtn = document.getElementById('main-btn');
-        const statusText = document.getElementById('status-text');
-        
-        setTimeout(function() {
-            mainBtn.removeAttribute('href'); 
-            mainBtn.removeAttribute('target');
-            mainBtn.style.pointerEvents = 'none'; 
-        }, 500);
-        
-        const countdown = setInterval(function() {
-            timeLeft--;
-            mainBtn.innerText = `অপেক্ষা করুন (${timeLeft} সেকেন্ড)`;
-            statusText.innerText = `আপনাকে ২০ সেকেন্ড বিজ্ঞাপনে থাকতে হবে।`;
-            
-            if (timeLeft <= 0) {
-                clearInterval(countdown);
-                
-                document.getElementById('view-count').innerText = "Watched: 1 / 1";
-                statusText.innerText = "অভিনন্দন! আপনার ভিডিওটি আনলক হয়েছে।";
-                
-                mainBtn.innerText = "এখন ভিডিও দেখুন";
-                mainBtn.classList.add('success');
-                mainBtn.style.pointerEvents = 'auto'; 
-                
-                mainBtn.setAttribute('href', 'https://t.me/+6WMf5P3PMaowZjk1');
-                mainBtn.setAttribute('target', '_blank');
-            }
-        }, 1000);
-    }
-</script>
+<img src="https://i.postimg.cc/x8WQYKfp/IMG-20260717-003830-621.jpg" alt="Image">
+
+<a class="btn" href="https://t.me/+6WMf5P3PMaowZjk1" target="_blank">
+🎥 ভিডিও দেখুন
+</a>
+
+</div>
+
+</div>
 
 </body>
 </html>

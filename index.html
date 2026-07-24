@@ -1,308 +1,184 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pompom Tube - Video Streaming Platform</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<title>Premium Video</title>
 
-    <!-- Ad Network Popunder / Banner Script -->
-    <script src="https://pl26528999.effectivecpmnetwork.com/7d/4c/19/7d4c19a30d94a83e7e2a5331cab82f2c.js"></script>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
-    <style>
-        :root {
-            --bg-color: #0b0f19;
-            --text-color: #ffffff;
-            --text-muted: #a0aec0;
-            --theme: #00f2fe;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-        }
+body{
+background:#05070f;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+padding:15px;
+}
 
-        body.neon-mode {
-            --bg-color: #f0f4f8;
-            --text-color: #1a202c;
-            --text-muted: #718096;
-            --theme: #0066ff;
-            --glass-bg: rgba(0, 0, 0, 0.05);
-            --glass-border: rgba(0, 0, 0, 0.1);
-        }
+.box{
+width:380px;
+background:#0d111c;
+border:2px solid #00ffd5;
+border-radius:20px;
+padding:20px;
+color:#fff;
+text-align:center;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+h1{
+font-size:32px;
+margin-bottom:20px;
+}
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: all 0.3s ease;
-        }
+.info{
+font-size:22px;
+color:#cfcfcf;
+line-height:1.7;
+}
 
-        /* Layout Structure */
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
+.info span{
+color:#00ffd5;
+font-weight:bold;
+}
 
-        .watch-layout {
-            display: grid;
-            grid-template-columns: 1fr 340px;
-            gap: 20px;
-        }
+.yellow{
+color:#ffc400;
+}
 
-        @media (max-width: 900px) {
-            .watch-layout {
-                grid-template-columns: 1fr;
-            }
-        }
+.adbox{
+margin:25px 0;
+padding:18px;
+border:2px solid #444;
+border-radius:15px;
+font-size:28px;
+font-weight:bold;
+}
 
-        /* Player Styling */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 16px;
-            background: #000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+.counter{
+display:flex;
+justify-content:space-between;
+background:#090c14;
+padding:20px;
+border-radius:15px;
+margin-bottom:25px;
+}
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+.counter h3{
+color:#999;
+font-size:20px;
+margin-bottom:10px;
+}
 
-        /* Action Buttons */
-        .action-bar {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
+.counter p{
+font-size:45px;
+font-weight:bold;
+}
 
-        .btn {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--text-color);
-            padding: 10px 18px;
-            border-radius: 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-        }
+.green{
+color:#00ffd5;
+}
 
-        .btn:hover {
-            background: var(--theme);
-            color: #000;
-        }
+.btn{
+width:100%;
+padding:18px;
+border:none;
+border-radius:15px;
+font-size:28px;
+font-weight:bold;
+color:#fff;
+cursor:pointer;
+background:linear-gradient(90deg,#00ffd5,#ff2d75);
+}
+</style>
 
-        /* Notification Toast */
-        .premium-toast-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 9999;
-        }
-
-        .premium-toast {
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid var(--theme);
-            color: #fff;
-            padding: 12px 20px;
-            border-radius: 8px;
-            display: none;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .premium-toast.show {
-            display: flex;
-        }
-
-        /* Sidebar Cards */
-        .video-card {
-            display: flex;
-            gap: 12px;
-            padding: 8px;
-            border-radius: 12px;
-            text-decoration: none;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            margin-bottom: 12px;
-            transition: 0.3s;
-        }
-
-        .video-card:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            border-top: 1px solid var(--glass-border);
-        }
-    </style>
 </head>
 <body>
 
-<div class="container">
-    <!-- Quick Actions Top Bar -->
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <h2><i class="fas fa-play-circle" style="color: var(--theme);"></i> Pompom Tube</h2>
-        <button id="neon-btn" class="btn" onclick="toggleNeonMode()">
-            <i class="fas fa-bolt"></i> <span>ডার্ক মোড</span>
-        </button>
-    </div>
+<div class="box">
 
-    <!-- Main Watch Layout -->
-    <div class="watch-layout">
-        
-        <!-- Main Content Area -->
-        <div class="main-content">
-            <!-- 1st Google Drive Embedded Player -->
-            <div class="video-container">
-                <iframe id="main-player" 
-                        src="https://drive.google.com/file/d/1lOfuq4rZ-chaXi1IDV5YSCvTqjTNbail/preview" 
-                        allow="autoplay" 
-                        allowfullscreen>
-                </iframe>
-            </div>
+<h1>প্রিমিয়াম ভিডিওটি লক করা আছে!</h1>
 
-            <!-- Video Info & Buttons -->
-            <div style="margin-top: 15px;">
-                <h2 id="video-title">প্রথম এক্সক্লুসিভ ভিডিও (Google Drive Stream)</h2>
-                
-                <div class="action-bar">
-                    <button class="btn" onclick="copyVideoLink()">
-                        <i class="fas fa-share-alt"></i> শেয়ার
-                    </button>
-                    <button class="btn" onclick="shareSocial('wa', 'ভিডিওটি দেখুন:')">
-                        <i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ
-                    </button>
-                    <button class="btn" onclick="startDownloadVerification()">
-                        <i class="fas fa-download"></i> ডাউনলোড
-                    </button>
-                </div>
-
-                <!-- Download Notification / Direct Ad Container -->
-                <div id="dl-notification" style="display: none; margin-top: 15px; padding: 15px; background: rgba(0, 242, 254, 0.1); border: 1px solid var(--theme); border-radius: 12px;">
-                    <p style="margin-bottom: 10px;">ডাউনলোড লিংক তৈরি হচ্ছে! নিচের স্পন্সর লিংকে ক্লিক করে যাচাই সম্পন্ন করুন:</p>
-                    <button class="btn" style="background: var(--theme); color: #000;" onclick="openDownloadAd()">
-                        <i class="fas fa-external-link-alt"></i> ভেরিফাই ও ডাউনলোড করুন
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sidebar Section -->
-        <div class="sidebar-section">
-            <div style="background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 20px; border-radius: 20px;">
-                <h3 style="color: var(--theme); font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-list"></i> সম্পর্কিত ভিডিও
-                </h3>
-
-                <!-- Suggested Video Card 2 -->
-                <a href="javascript:void(0)" onclick="loadSecondVideo()" class="video-card">
-                    <img src="https://lh3.googleusercontent.com/d/15YxRXkncz34z2TSULU8YgcZszoQCt1g5" alt="Thumbnail" style="width: 100px; height: 65px; object-fit: cover; border-radius: 8px;" onerror="this.src='https://via.placeholder.com/100x65?text=Video+2'">
-                    <div style="display: flex; flex-direction: column; justify-content: center;">
-                        <h4 style="font-size: 14px; color: var(--text-color); margin-bottom: 4px;">দ্বিতীয় ভিডিও দেখুন</h4>
-                        <span style="font-size: 12px; color: var(--text-muted);"><i class="fas fa-eye"></i> গুগল ড্রাইভ</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-    </div>
+<div class="info">
+ভিডিওটি দেখতে আপনাকে <span>১ টি</span> অ্যাড দেখতে হবে।<br>
+প্রতিটি অ্যাড <span class="yellow">৬০ সেকেন্ড</span> দেখতে হবে।
 </div>
 
-<!-- Dynamic Toast Container -->
-<div class="premium-toast-container" id="toast-container"></div>
+<div class="adbox">
+📺 ১ টি অ্যাড
+</div>
 
-<!-- Footer -->
-<footer>
-    <p>&copy; 2026 <strong>Pompom Tube</strong>. সর্বস্বত্ব সংরক্ষিত।</p>
-</footer>
+<div class="counter">
 
-<!-- Interactive Scripts -->
+<div>
+<h3>মোট অ্যাড</h3>
+<p>১</p>
+</div>
+
+<div>
+<h3>দেখা হয়েছে</h3>
+<p class="green" id="count">০</p>
+</div>
+
+</div>
+
+<button id="actionBtn" class="btn">
+আড দেখুন (০/১)
+</button>
+
+</div>
+
 <script>
-    // Theme Switcher (Dark/Light)
-    function toggleNeonMode() {
-        document.body.classList.toggle('neon-mode');
-        const neonBtn = document.getElementById('neon-btn');
-        if (document.body.classList.contains('neon-mode')) {
-            neonBtn.innerHTML = '<i class="fas fa-sun"></i> <span>লাইট মোড</span>';
-        } else {
-            neonBtn.innerHTML = '<i class="fas fa-bolt"></i> <span>ডার্ক মোড</span>';
-        }
-    }
 
-    // Share Link Copy
-    function copyVideoLink() {
-        navigator.clipboard.writeText(window.location.href);
-        showToast('লিংক কপি করা হয়েছে!', 'fa-link');
-    }
+const adLink="https://www.effectivecpmnetwork.com/rxpxf1ikn?key=14d3589a10b3e9d095c578a9e5a2d70e";
 
-    // Social Share
-    function shareSocial(type, text) {
-        const url = encodeURIComponent(window.location.href);
-        if(type === 'wa') {
-            window.open(`https://api.whatsapp.com/send?text=${text}%20${url}`, '_blank');
-        }
-    }
+const videoLink="https://t.me/+6WMf5P3PMaowZjk1";
 
-    // Toggle Download Verification
-    function startDownloadVerification() {
-        $('#dl-notification').slideToggle(300);
-    }
+let adSeen=localStorage.getItem("adSeen");
 
-    // Open Direct Ad Link on Download Verification
-    function openDownloadAd() {
-        // আপনার ডাইরেক্ট অ্যাড লিংক
-        window.open('https://www.effectivecpmnetwork.com/rxpxf1ikn?key=14d3589a10b3e9d095c578a9e5a2d70e', '_blank');
-        showToast('যাচাইকরণ প্রক্রিয়া চালু রয়েছে...', 'fa-spinner');
-    }
+const btn=document.getElementById("actionBtn");
+const count=document.getElementById("count");
 
-    // Switch Player Video Stream to 2nd Video Link
-    function loadSecondVideo() {
-        document.getElementById('main-player').src = "https://drive.google.com/file/d/15YxRXkncz34z2TSULU8YgcZszoQCt1g5/preview";
-        document.getElementById('video-title').innerText = "দ্বিতীয় এক্সক্লুসিভ ভিডিও (Google Drive Stream)";
-        showToast('দ্বিতীয় ভিডিও প্লে হচ্ছে...', 'fa-play');
-    }
+if(adSeen==="true"){
+btn.innerHTML="এখন ভিডিও দেখুন";
+count.innerHTML="১";
+}
 
-    // Custom Notification Toast Function
-    function showToast(message, icon = 'fa-info-circle') {
-        const toast = $(`
-            <div class="premium-toast show">
-                <i class="fas ${icon}"></i>
-                <span>${message}</span>
-            </div>
-        `);
-        $('#toast-container').append(toast);
-        setTimeout(() => {
-            toast.removeClass('show');
-            setTimeout(() => toast.remove(), 400);
-        }, 3000);
-    }
+btn.onclick=function(){
+
+if(localStorage.getItem("adSeen")==="true"){
+
+window.location.href=videoLink;
+
+}else{
+
+localStorage.setItem("adSeen","true");
+
+window.open(adLink,"_blank");
+
+}
+
+};
+
+window.addEventListener("focus",function(){
+
+if(localStorage.getItem("adSeen")==="true"){
+
+btn.innerHTML="এখন ভিডিও দেখুন";
+
+count.innerHTML="১";
+
+}
+
+});
+
 </script>
 
 </body>

@@ -3,99 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Premium Video</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-body{
-background:#05070f;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-padding:15px;
+body {
+  background: #05070f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 15px;
 }
 
-.box{
-width:380px;
-background:#0d111c;
-border:2px solid #00ffd5;
-border-radius:20px;
-padding:20px;
-color:#fff;
-text-align:center;
+.box {
+  width: 100%;
+  max-width: 380px;
+  background: #0d111c;
+  border: 2px solid #00ffd5;
+  border-radius: 20px;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 255, 213, 0.2);
 }
 
-h1{
-font-size:32px;
-margin-bottom:20px;
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
-.info{
-font-size:22px;
-color:#cfcfcf;
-line-height:1.7;
+.info {
+  font-size: 18px;
+  color: #cfcfcf;
+  line-height: 1.7;
 }
 
-.info span{
-color:#00ffd5;
-font-weight:bold;
+.info span {
+  color: #00ffd5;
+  font-weight: bold;
 }
 
-.yellow{
-color:#ffc400;
+.yellow {
+  color: #ffc400;
 }
 
-.adbox{
-margin:25px 0;
-padding:18px;
-border:2px solid #444;
-border-radius:15px;
-font-size:28px;
-font-weight:bold;
+.adbox {
+  margin: 25px 0;
+  padding: 18px;
+  border: 2px solid #444;
+  border-radius: 15px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.counter{
-display:flex;
-justify-content:space-between;
-background:#090c14;
-padding:20px;
-border-radius:15px;
-margin-bottom:25px;
+.counter {
+  display: flex;
+  justify-content: space-around;
+  background: #090c14;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 25px;
 }
 
-.counter h3{
-color:#999;
-font-size:20px;
-margin-bottom:10px;
+.counter h3 {
+  color: #999;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
-.counter p{
-font-size:45px;
-font-weight:bold;
+.counter p {
+  font-size: 38px;
+  font-weight: bold;
 }
 
-.green{
-color:#00ffd5;
+.green {
+  color: #00ffd5;
 }
 
-.btn{
-width:100%;
-padding:18px;
-border:none;
-border-radius:15px;
-font-size:28px;
-font-weight:bold;
-color:#fff;
-cursor:pointer;
-background:linear-gradient(90deg,#00ffd5,#ff2d75);
+.btn {
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(90deg, #00ffd5, #ff2d75);
+  transition: opacity 0.3s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.ad-container {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
 }
 </style>
 
@@ -103,83 +116,79 @@ background:linear-gradient(90deg,#00ffd5,#ff2d75);
 <body>
 
 <div class="box">
+  <h1>প্রিমিয়াম ভিডিওটি লক করা আছে!</h1>
 
-<h1>প্রিমিয়াম ভিডিওটি লক করা আছে!</h1>
+  <div class="info">
+    ভিডিওটি দেখতে আপনাকে <span>১ টি</span> অ্যাড দেখতে হবে।<br>
+    প্রতিটি অ্যাড <span class="yellow">৬০ সেকেন্ড</span> দেখতে হবে।
+  </div>
 
-<div class="info">
-ভিডিওটি দেখতে আপনাকে <span>১ টি</span> অ্যাড দেখতে হবে।<br>
-প্রতিটি অ্যাড <span class="yellow">৬০ সেকেন্ড</span> দেখতে হবে।
+  <div class="adbox">
+    📺 ১ টি অ্যাড
+  </div>
+
+  <div class="counter">
+    <div>
+      <h3>মোট অ্যাড</h3>
+      <p>১</p>
+    </div>
+    <div>
+      <h3>দেখা হয়েছে</h3>
+      <p class="green" id="count">০</p>
+    </div>
+  </div>
+
+  <button id="actionBtn" class="btn">অ্যাড দেখুন (০/১)</button>
 </div>
 
-<div class="adbox">
-📺 ১ টি অ্যাড
-</div>
-
-<div class="counter">
-
-<div>
-<h3>মোট অ্যাড</h3>
-<p>১</p>
-</div>
-
-<div>
-<h3>দেখা হয়েছে</h3>
-<p class="green" id="count">০</p>
-</div>
-
-</div>
-
-<button id="actionBtn" class="btn">
-আড দেখুন (০/১)
-</button>
-
+<!-- বিজ্ঞাপনের কন্টেইনার -->
+<div class="ad-container">
+  <div id="container-5fa44691fe439519a327db32cdac929c"></div>
 </div>
 
 <script>
+  const adLink = "https://www.effectivecpmnetwork.com/rxpxf1ikn?key=14d3589a10b3e9d095c578a9e5a2d70e";
+  const videoLink = "https://t.me/+6WMf5P3PMaowZjk1";
 
-const adLink="https://www.effectivecpmnetwork.com/rxpxf1ikn?key=14d3589a10b3e9d095c578a9e5a2d70e";
+  const btn = document.getElementById("actionBtn");
+  const count = document.getElementById("count");
 
-const videoLink="https://t.me/+6WMf5P3PMaowZjk1";
+  // অবস্থা আপডেট করার ফাংশন
+  function updateUI() {
+    const adSeen = localStorage.getItem("adSeen");
+    if (adSeen === "true") {
+      btn.innerHTML = "এখন ভিডিও দেখুন";
+      count.innerHTML = "১";
+    } else {
+      btn.innerHTML = "অ্যাড দেখুন (০/১)";
+      count.innerHTML = "০";
+    }
+  }
 
-let adSeen=localStorage.getItem("adSeen");
+  // পেজ লোড হলে UI আপডেট
+  updateUI();
 
-const btn=document.getElementById("actionBtn");
-const count=document.getElementById("count");
+  btn.onclick = function() {
+    if (localStorage.getItem("adSeen") === "true") {
+      // অ্যাড দেখা হয়ে গেলে টেলিগ্রাম লিংকে পাঠাবে
+      window.location.href = videoLink;
+    } else {
+      // অ্যাড না দেখা থাকলে লোকাল স্টোরেজ আপডেট হবে এবং নতুন ট্যাবে অ্যাড খুলবে
+      localStorage.setItem("adSeen", "true");
+      window.open(adLink, "_blank");
+      updateUI();
+    }
+  };
 
-if(adSeen==="true"){
-btn.innerHTML="এখন ভিডিও দেখুন";
-count.innerHTML="১";
-}
-
-btn.onclick=function(){
-
-if(localStorage.getItem("adSeen")==="true"){
-
-window.location.href=videoLink;
-
-}else{
-
-localStorage.setItem("adSeen","true");
-
-window.open(adLink,"_blank");
-
-}
-
-};
-
-window.addEventListener("focus",function(){
-
-if(localStorage.getItem("adSeen")==="true"){
-
-btn.innerHTML="এখন ভিডিও দেখুন";
-
-count.innerHTML="১";
-
-}
-
-});
-
+  // ব্যবহারকারী অ্যাড দেখে পেজে ফিরে আসলে UI রিফ্রেশ হবে
+  window.addEventListener("focus", function() {
+    updateUI();
+  });
 </script>
+
+<!-- বিজ্ঞাপনের স্ক্রিপ্টসমূহ -->
+<script async="async" data-cfasync="false" src="https://pl26529058.effectivecpmnetwork.com/5fa44691fe439519a327db32cdac929c/invoke.js"></script>
+<script src="https://pl26528999.effectivecpmnetwork.com/7d/4c/19/7d4c19a30d94a83e7e2a5331cab82f2c.js"></script>
 
 </body>
 </html>

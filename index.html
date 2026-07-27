@@ -1,194 +1,682 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premium Video</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trend VideoTube</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+    <!-- Auto Ad Scripts (Popunder & Direct Ads) -->
+    <script src="https://pl26528982.effectivecpmnetwork.com/24/a5/58/24a5583b31abd1234ca379f2961f3469.js"></script>
+    <script src="https://pl26528999.effectivecpmnetwork.com/7d/4c/19/7d4c19a30d94a83e7e2a5331cab82f2c.js"></script>
 
-body {
-  background: #05070f;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 15px;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
 
-.box {
-  width: 100%;
-  max-width: 380px;
-  background: #0d111c;
-  border: 2px solid #00ffd5;
-  border-radius: 20px;
-  padding: 20px;
-  color: #fff;
-  text-align: center;
-  box-shadow: 0 0 15px rgba(0, 255, 213, 0.2);
-}
+        body {
+            background-color: #f3f0ff;
+            padding-bottom: 80px;
+            max-width: 450px;
+            margin: 0 auto;
+        }
 
-h1 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
+        /* Header */
+        .app-header {
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.info {
-  font-size: 18px;
-  color: #cfcfcf;
-  line-height: 1.7;
-}
+        .user-avatar {
+            background: #f43f5e;
+            color: white;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 2px solid #fde047;
+        }
 
-.info span {
-  color: #00ffd5;
-  font-weight: bold;
-}
+        .online-status {
+            background: rgba(0, 0, 0, 0.2);
+            color: #4ade80;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
 
-.yellow {
-  color: #ffc400;
-}
+        .dot {
+            height: 8px;
+            width: 8px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+        }
 
-.adbox {
-  margin: 25px 0;
-  padding: 18px;
-  border: 2px solid #444;
-  border-radius: 15px;
-  font-size: 24px;
-  font-weight: bold;
-}
+        .settings-btn {
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
 
-.counter {
-  display: flex;
-  justify-content: space-around;
-  background: #090c14;
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 25px;
-}
+        /* Balance Card */
+        .balance-card {
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            margin: 15px;
+            padding: 20px;
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+        }
 
-.counter h3 {
-  color: #999;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
+        .balance-amount {
+            font-size: 26px;
+            margin: 8px 0;
+        }
 
-.counter p {
-  font-size: 38px;
-  font-weight: bold;
-}
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            height: 6px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
 
-.green {
-  color: #00ffd5;
-}
+        .progress-fill {
+            width: 70%;
+            height: 100%;
+            background: #4ade80;
+            border-radius: 10px;
+        }
 
-.btn {
-  width: 100%;
-  padding: 18px;
-  border: none;
-  border-radius: 15px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #fff;
-  cursor: pointer;
-  background: linear-gradient(90deg, #00ffd5, #ff2d75);
-  transition: opacity 0.3s ease;
-}
+        .withdraw-notice {
+            background: rgba(244, 63, 94, 0.8);
+            border: none;
+            color: white;
+            width: 100%;
+            padding: 10px;
+            border-radius: 25px;
+            font-size: 12px;
+        }
 
-.btn:hover {
-  opacity: 0.9;
-}
+        /* Quick Action Grid */
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 0 15px;
+        }
 
-.ad-container {
-  margin-top: 20px;
-  width: 100%;
-  text-align: center;
-}
-</style>
+        .action-item {
+            background: white;
+            padding: 15px 5px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            cursor: pointer;
+        }
 
+        .action-item i {
+            font-size: 20px;
+            color: white;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 12px;
+            margin: 0 auto 5px auto;
+        }
+
+        .icon-pink i { background: #ec4899; }
+        .icon-orange i { background: #f97316; }
+        .icon-blue i { background: #3b82f6; }
+        .icon-green i { background: #10b981; }
+
+        /* Ads Containers */
+        .ad-container-banner {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .ad-container-native {
+            margin: 15px;
+            text-align: center;
+        }
+
+        /* Video Section */
+        .section-container { padding: 10px 15px; }
+
+        .tab-scroller {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tab-btn {
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .tab-btn.active {
+            background: #a855f7;
+            color: white;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 0 15px;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .thumbnail {
+            height: 120px;
+            position: relative;
+            background: #000;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .badge {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 28px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .video-title {
+            font-size: 11px;
+            padding: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Modal Pop-up */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #ffd700;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 25px;
+            width: 85%;
+            max-width: 380px;
+            position: relative;
+        }
+
+        .close-modal {
+            color: #fff;
+            background-color: #000;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .modal-image-container {
+            position: relative;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .modal-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .views-badge {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .modal-title {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0 10px 0;
+        }
+
+        .watched-count {
+            background-color: #333;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 6px 16px;
+            border-radius: 20px;
+            width: fit-content;
+            margin: 0 auto 10px auto;
+        }
+
+        .modal-instruction {
+            font-size: 11px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .modal-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .modal-btn {
+            border: none;
+            color: white;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-blue { background-color: #3b82f6; }
+        .btn-pink { background-color: #ec4899; }
+        .btn-black { background-color: #1a1a1a; }
+
+        /* Bottom Nav */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 450px;
+            background: #2563eb;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            color: white;
+        }
+
+        .nav-item {
+            text-align: center;
+            font-size: 11px;
+            opacity: 0.7;
+        }
+
+        .nav-item.active {
+            opacity: 1;
+            font-weight: bold;
+        }
+
+        .nav-item i {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 2px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="box">
-  <h1>প্রিমিয়াম ভিডিওটি লক করা আছে!</h1>
-
-  <div class="info">
-    ভিডিওটি দেখতে আপনাকে <span>১ টি</span> অ্যাড দেখতে হবে।<br>
-    প্রতিটি অ্যাড <span class="yellow">৬০ সেকেন্ড</span> দেখতে হবে।
-  </div>
-
-  <div class="adbox">
-    📺 ১ টি অ্যাড
-  </div>
-
-  <div class="counter">
-    <div>
-      <h3>মোট অ্যাড</h3>
-      <p>১</p>
+    <!-- Header Section -->
+    <div class="app-header">
+        <span class="user-avatar">আর</span>
+        <div class="online-status"><span class="dot"></span> 3 ONLINE</div>
+        <button class="settings-btn"><i class="fa-solid fa-gear"></i></button>
     </div>
-    <div>
-      <h3>দেখা হয়েছে</h3>
-      <p class="green" id="count">০</p>
+
+    <!-- Balance Card -->
+    <div class="balance-card">
+        <p class="balance-label">Total Balance</p>
+        <h2 class="balance-amount">৳ <span id="user-balance">6623.00</span> BDT</h2>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+        <button class="withdraw-notice">
+            <i class="fa-solid fa-bell"></i> Withdraw from minimum ৳1000.00!
+        </button>
     </div>
-  </div>
 
-  <button id="actionBtn" class="btn">অ্যাড দেখুন (০/১)</button>
-</div>
+    <!-- Quick Action Grid -->
+    <div class="action-grid">
+        <div class="action-item icon-pink" onclick="openAdLink()">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Tasks</span>
+        </div>
+        <div class="action-item icon-orange" onclick="openAdLink()">
+            <i class="fa-solid fa-video"></i>
+            <span>Videos</span>
+        </div>
+        <div class="action-item icon-blue" onclick="openAdLink()">
+            <i class="fa-solid fa-user-group"></i>
+            <span>Refer</span>
+        </div>
+        <div class="action-item icon-green" onclick="openAdLink()">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Withdraw</span>
+        </div>
+    </div>
 
-<!-- বিজ্ঞাপনের কন্টেইনার -->
-<div class="ad-container">
-  <div id="container-5fa44691fe439519a327db32cdac929c"></div>
-</div>
+    <!-- Top Banner Ad Space (160x300 Banner) -->
+    <div class="ad-container-banner">
+        <script>
+          atOptions = {
+            'key' : '70fd4db109ab5e7613597088fd0a1733',
+            'format' : 'iframe',
+            'height' : 300,
+            'width' : 160,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highperformanceformat.com/70fd4db109ab5e7613597088fd0a1733/invoke.js"></script>
+    </div>
 
-<script>
-  const adLink = "https://www.effectivecpmnetwork.com/rxpxf1ikn?key=14d3589a10b3e9d095c578a9e5a2d70e";
-  const videoLink = "https://t.me/+6WMf5P3PMaowZjk1";
+    <!-- Section Title & Tabs -->
+    <div class="section-container">
+        <h3>Watch & Earn</h3>
+        <div class="tab-scroller">
+            <button class="tab-btn active">All Videos</button>
+            <button class="tab-btn">Viral Video</button>
+            <button class="tab-btn">Hot 🥵</button>
+        </div>
+    </div>
 
-  const btn = document.getElementById("actionBtn");
-  const count = document.getElementById("count");
+    <!-- Dynamic Video Grid -->
+    <div class="video-grid" id="video-container">
+        <!-- Videos will render here via JS -->
+    </div>
 
-  // অবস্থা আপডেট করার ফাংশন
-  function updateUI() {
-    const adSeen = localStorage.getItem("adSeen");
-    if (adSeen === "true") {
-      btn.innerHTML = "এখন ভিডিও দেখুন";
-      count.innerHTML = "১";
-    } else {
-      btn.innerHTML = "অ্যাড দেখুন (০/১)";
-      count.innerHTML = "০";
-    }
-  }
+    <!-- Native Container Ad Space -->
+    <div class="ad-container-native">
+        <script async="async" data-cfasync="false" src="https://pl26529058.effectivecpmnetwork.com/5fa44691fe439519a327db32cdac929c/invoke.js"></script>
+        <div id="container-5fa44691fe439519a327db32cdac929c"></div>
+    </div>
 
-  // পেজ লোড হলে UI আপডেট
-  updateUI();
+    <!-- Popup Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modalVideoThumbnail" src="" alt="Thumbnail">
+                    <div class="views-badge"><i class="fa-solid fa-eye"></i> Views: <span id="modalViews">0</span></div>
+                </div>
 
-  btn.onclick = function() {
-    if (localStorage.getItem("adSeen") === "true") {
-      // অ্যাড দেখা হয়ে গেলে টেলিগ্রাম লিংকে পাঠাবে
-      window.location.href = videoLink;
-    } else {
-      // অ্যাড না দেখা থাকলে লোকাল স্টোরেজ আপডেট হবে এবং নতুন ট্যাবে অ্যাড খুলবে
-      localStorage.setItem("adSeen", "true");
-      window.open(adLink, "_blank");
-      updateUI();
-    }
-  };
+                <h3 id="modalVideoTitle" class="modal-title">লোডিং...</h3>
+                <div class="watched-count">Watched: <span id="modalWatched">0</span> / 5</div>
+                <p class="modal-instruction">Watch the ad completely to unlock.</p>
 
-  // ব্যবহারকারী অ্যাড দেখে পেজে ফিরে আসলে UI রিফ্রেশ হবে
-  window.addEventListener("focus", function() {
-    updateUI();
-  });
-</script>
+                <div class="modal-actions">
+                    <button class="modal-btn btn-blue" onclick="openAdLink()">
+                        <i class="fa-solid fa-eye"></i> Watch Demo in Inbox
+                    </button>
 
-<!-- বিজ্ঞাপনের স্ক্রিপ্টসমূহ -->
-<script async="async" data-cfasync="false" src="https://pl26529058.effectivecpmnetwork.com/5fa44691fe439519a327db32cdac929c/invoke.js"></script>
-<script src="https://pl26528999.effectivecpmnetwork.com/7d/4c/19/7d4c19a30d94a83e7e2a5331cab82f2c.js"></script>
+                    <button class="modal-btn btn-pink" onclick="openAdLink()">
+                        <i class="fa-solid fa-gift"></i> Free Unlock (Left: <span id="modalFreeUnlock">2</span>)
+                    </button>
 
+                    <button id="mainActionBtn" class="modal-btn btn-black" onclick="watchAdAndEarn()">
+                        <i class="fa-solid fa-circle-play"></i> Watch Ad
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <div class="bottom-nav">
+        <div class="nav-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </div>
+        <div class="nav-item">
+            <i class="fa-solid fa-user-plus"></i>
+            <span>Refer</span>
+        </div>
+        <div class="nav-item">
+            <i class="fa-solid fa-coins"></i>
+            <span>Earn</span>
+        </div>
+        <div class="nav-item">
+            <i class="fa-solid fa-ranking-star"></i>
+            <span>Rank</span>
+        </div>
+        <div class="nav-item">
+            <i class="fa-solid fa-user"></i>
+            <span>Profile</span>
+        </div>
+    </div>
+
+    <script>
+        const AD_LINK = "https://www.effectivecpmnetwork.com/rxpxf1ikn?key=14d3589a10b3e9d095c578a9e5a2d70e";
+        const TELEGRAM_LINK = "https://t.me/+6WMf5P3PMaowZjk1";
+
+        const videosList = [
+            {
+                id: 1,
+                title: "ভিডিও টাস্ক ১ - দেখুন এবং আর্ন করুন",
+                image: "https://i.postimg.cc/cLJtKtdN/IMG-20260724-003345-765.jpg",
+                reward: 10,
+                views: 120,
+                watched: 0,
+                freeUnlock: 3
+            },
+            {
+                id: 2,
+                title: "স্পেশাল ভাইরাল ভিডিও টাস্ক",
+                image: "https://i.postimg.cc/XNwCt02X/pexels-mehedi-30703875.jpg",
+                reward: 15,
+                views: 450,
+                watched: 1,
+                freeUnlock: 2
+            },
+            {
+                id: 3,
+                title: "হট টাস্ক - ৩-মিনিট ওয়াচ",
+                image: "https://i.postimg.cc/13W6Mcv7/IMG-20260724-145446-407.jpg",
+                reward: 12,
+                views: 320,
+                watched: 2,
+                freeUnlock: 1
+            },
+            {
+                id: 4,
+                title: "ট্রেন্ডিং শর্ট ভিডিও টাস্ক",
+                image: "https://i.postimg.cc/m2sQrrcm/IMG-20260724-145458-584.jpg",
+                reward: 10,
+                views: 210,
+                watched: 0,
+                freeUnlock: 3
+            },
+            {
+                id: 5,
+                title: "প্রিমিয়াম টাস্ক - ভিডিও ওয়াচ",
+                image: "https://i.postimg.cc/DfsrFGwC/xn-2-p.jpg",
+                reward: 20,
+                views: 540,
+                watched: 3,
+                freeUnlock: 1
+            },
+            {
+                id: 6,
+                title: "ডেইলি রিওয়ার্ড ভিডিও টাস্ক",
+                image: "https://i.postimg.cc/yd3FDgXv/IMG-20260724-191052-189.jpg",
+                reward: 10,
+                views: 180,
+                watched: 0,
+                freeUnlock: 2
+            },
+            {
+                id: 7,
+                title: "ভাইরাল কন্টেন্ট টাস্ক",
+                image: "https://i.postimg.cc/vmNr8L9Q/IMG-20260725-201544-040.jpg",
+                reward: 15,
+                views: 600,
+                watched: 4,
+                freeUnlock: 1
+            },
+            {
+                id: 8,
+                title: "স্পেশাল বোনাস টাস্ক",
+                image: "https://i.postimg.cc/YCtfdSMq/IMG-20260726-112833-974.jpg",
+                reward: 18,
+                views: 390,
+                watched: 1,
+                freeUnlock: 2
+            },
+            {
+                id: 9,
+                title: "লিজেন্ডারি ভিডিও রিওয়ার্ড",
+                image: "https://i.postimg.cc/SNFGzrPf/IMG-20260725-221802-913.jpg",
+                reward: 25,
+                views: 890,
+                watched: 2,
+                freeUnlock: 2
+            }
+        ];
+
+        let currentVideoReward = 0;
+
+        const container = document.getElementById('video-container');
+
+        videosList.forEach((video) => {
+            const cardHTML = `
+                <div class="video-card" onclick="openVideoModal(${video.id})">
+                    <div class="thumbnail">
+                        <img src="${video.image}" alt="${video.title}">
+                        <span class="badge">Demo Avail.</span>
+                        <i class="fa-solid fa-circle-play play-icon"></i>
+                    </div>
+                    <p class="video-title">${video.title}</p>
+                </div>
+            `;
+            container.innerHTML += cardHTML;
+        });
+
+        const modal = document.getElementById("videoModal");
+        const closeBtn = document.querySelector(".close-modal");
+
+        function openVideoModal(videoId) {
+            const video = videosList.find(v => v.id === videoId);
+            
+            if (video) {
+                currentVideoReward = video.reward;
+                document.getElementById("modalVideoThumbnail").src = video.image;
+                document.getElementById("modalVideoTitle").innerText = video.title;
+                document.getElementById("modalViews").innerText = video.views;
+                document.getElementById("modalWatched").innerText = video.watched;
+                document.getElementById("modalFreeUnlock").innerText = video.freeUnlock;
+                
+                resetActionButton();
+                modal.style.display = "block";
+            }
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function openAdLink() {
+            window.open(AD_LINK, '_blank');
+        }
+
+        function watchAdAndEarn() {
+            window.open(AD_LINK, '_blank');
+            
+            let balanceElement = document.getElementById('user-balance');
+            let currentBalance = parseFloat(balanceElement.innerText);
+            let newBalance = currentBalance + currentVideoReward;
+            balanceElement.innerText = newBalance.toFixed(2);
+
+            const mainBtn = document.getElementById("mainActionBtn");
+            mainBtn.innerHTML = '<i class="fa-brands fa-telegram"></i> এখন ভিডিও দেখুন';
+            mainBtn.style.backgroundColor = "#22c55e";
+            
+            mainBtn.onclick = function() {
+                window.open(TELEGRAM_LINK, '_blank');
+            };
+        }
+
+        function resetActionButton() {
+            const mainBtn = document.getElementById("mainActionBtn");
+            mainBtn.innerHTML = '<i class="fa-solid fa-circle-play"></i> Watch Ad';
+            mainBtn.style.backgroundColor = "#1a1a1a";
+            mainBtn.onclick = watchAdAndEarn;
+        }
+    </script>
 </body>
-</html>
+  </html>

@@ -1,118 +1,91 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Watch Video</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ভিডিও আনলক</title>
 
-<style>
-body{
-    margin:0;
-    padding:0;
-    font-family:Arial,sans-serif;
-    background:#111827;
-    color:#fff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
+  <!-- Direct Link / Popunder Scripts -->
+  <script src="https://pl26528982.effectivecpmnetwork.com/24/a5/58/24a5583b31abd1234ca379f2961f3469.js"></script>
+  <script src="https://pl26528999.effectivecpmnetwork.com/7d/4c/19/7d4c19a30d94a83e7e2a5331cab82f2c.js"></script>
 
-.box{
-    width:90%;
-    max-width:400px;
-    background:#1f2937;
-    padding:25px;
-    border-radius:12px;
-    text-align:center;
-    box-shadow:0 0 15px rgba(0,0,0,.4);
-}
-
-h2{
-    font-size:22px;
-    margin-bottom:20px;
-}
-
-button{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:8px;
-    font-size:18px;
-    cursor:pointer;
-    margin-top:15px;
-}
-
-#adBtn{
-    background:#ff5722;
-    color:#fff;
-}
-
-#videoBtn{
-    background:#16a34a;
-    color:#fff;
-    display:none;
-}
-
-#status{
-    margin-top:18px;
-    font-size:18px;
-    color:#ffd54f;
-}
-</style>
-
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111827;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px 0;
+      box-sizing: border-box;
+    }
+    .box {
+      width: 90%;
+      max-width: 400px;
+      background: #1f2937;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    .ad-container {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
 </head>
 <body>
 
-<div class="box">
+  <div class="box">
+    <h2>অনুগ্রহ করে ৫ সেকেন্ড অপেক্ষা করুন</h2>
+    <h1 id="count">5</h1>
 
-<h2>ভিডিও দেখতে হলে আপনাকে ২০ সেকেন্ড Ad দেখতে হবে</h2>
+    <!-- Inline Style সহ আপনার ভিডিও বাটন -->
+    <button id="videoBtn"
+      style="display:none;width:100%;padding:14px 25px;background:#16a34a;color:#fff;border:none;border-radius:8px;font-size:18px;cursor:pointer;"
+      onclick="window.location.href='https://t.me/+6WMf5P3PMaowZjk1';">
+      ▶️ এখন ভিডিও দেখুন
+    </button>
 
-<button id="adBtn" onclick="startAd()">
-📺 Ad দেখুন
-</button>
+    <!-- Ad Unit 1: 160x300 Banner -->
+    <div class="ad-container">
+      <script>
+        atOptions = {
+          'key' : '70fd4db109ab5e7613597088fd0a1733',
+          'format' : 'iframe',
+          'height' : 300,
+          'width' : 160,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/70fd4db109ab5e7613597088fd0a1733/invoke.js"></script>
+    </div>
 
-<p id="status"></p>
+    <!-- Ad Unit 2: Native / Multi-tag Ad Container -->
+    <div class="ad-container">
+      <script async="async" data-cfasync="false" src="https://pl26529058.effectivecpmnetwork.com/5fa44691fe439519a327db32cdac929c/invoke.js"></script>
+      <div id="container-5fa44691fe439519a327db32cdac929c"></div>
+    </div>
+  </div>
 
-<button id="videoBtn" onclick="window.location.href='https://t.me/+6WMf5P3PMaowZjk1'">
-▶️ এখন ভিডিও দেখুন
-</button>
+  <script>
+    let sec = 5;
 
-</div>
+    const timer = setInterval(function () {
+      sec--;
+      document.getElementById("count").innerText = sec;
 
-<script>
-
-function startAd(){
-
-window.open("https://www.effectivecpmnetwork.com/ap1x8f4v?key=58f3df2cd95ae596c5711b68f05f7111","_blank");
-
-document.getElementById("adBtn").disabled=true;
-
-let time=20;
-
-document.getElementById("status").innerHTML="⏳ অপেক্ষা করুন: "+time+" সেকেন্ড";
-
-let timer=setInterval(function(){
-
-time--;
-
-document.getElementById("status").innerHTML="⏳ অপেক্ষা করুন: "+time+" সেকেন্ড";
-
-if(time<=0){
-
-clearInterval(timer);
-
-document.getElementById("status").innerHTML="✅ এখন ভিডিও দেখতে পারবেন";
-
-document.getElementById("videoBtn").style.display="block";
-
-}
-
-},1000);
-
-}
-
-</script>
+      if (sec <= 0) {
+        clearInterval(timer);
+        document.getElementById("count").innerHTML = "✅ ভিডিও আনলক হয়েছে";
+        document.getElementById("videoBtn").style.display = "block";
+      }
+    }, 1000);
+  </script>
 
 </body>
 </html>

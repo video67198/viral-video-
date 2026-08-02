@@ -1,91 +1,241 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ভিডিও আনলক</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Direct Link / Popunder Scripts -->
-  <script src="https://pl26528982.effectivecpmnetwork.com/24/a5/58/24a5583b31abd1234ca379f2961f3469.js"></script>
-  <script src="https://pl26528999.effectivecpmnetwork.com/7d/4c/19/7d4c19a30d94a83e7e2a5331cab82f2c.js"></script>
+<title>Premium Video</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111827;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px 0;
-      box-sizing: border-box;
-    }
-    .box {
-      width: 90%;
-      max-width: 400px;
-      background: #1f2937;
-      padding: 25px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    }
-    .ad-container {
-      margin-top: 15px;
-      display: flex;
-      justify-content: center;
-    }
-  </style>
+<!-- অ্যাড স্ক্রিপ্ট -->
+<script src="https://pl26528999.effectivecpmnetwork.com/7d/4c/19/7d4c19a30d94a83e7e2a5331cab82f2c.js"></script>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+/* ব্যাকগ্রাউন্ডে ছবি ও ওভারলে সেটআপ */
+background: linear-gradient(rgba(2, 6, 23, 0.75), rgba(2, 6, 23, 0.85)), 
+            url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop') no-repeat center center/cover;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:15px;
+overflow: hidden;
+}
+
+/* প্রিমিয়াম গ্লাস কার্ড */
+.box{
+width:100%;
+max-width:400px;
+background: rgba(15, 23, 42, 0.65);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border: 1px solid rgba(0, 255, 213, 0.4);
+border-radius:24px;
+padding:30px 24px;
+color:#fff;
+text-align:center;
+box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 
+            0 0 25px rgba(0, 255, 213, 0.2);
+transition: all 0.3s ease;
+}
+
+h1{
+font-size:26px;
+margin-bottom:15px;
+font-weight: 700;
+background: linear-gradient(135deg, #ffffff 0%, #00ffd5 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow: 0 2px 10px rgba(0, 255, 213, 0.2);
+}
+
+.info{
+font-size:16px;
+color:#cbd5e1;
+line-height:1.6;
+background: rgba(0, 0, 0, 0.4);
+padding: 12px;
+border-radius: 12px;
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info span{
+color:#00ffd5;
+font-weight:bold;
+}
+
+.yellow{
+color:#ffb703;
+font-weight: bold;
+}
+
+.adbox{
+margin:20px 0;
+padding:14px;
+background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+border: 1px dashed rgba(0, 255, 213, 0.4);
+border-radius:16px;
+font-size:20px;
+font-weight:600;
+color: #f8fafc;
+}
+
+/* কাউন্টার সেকশন */
+.counter{
+display:flex;
+justify-content:space-around;
+background: rgba(0, 0, 0, 0.5);
+padding:16px;
+border-radius:16px;
+margin-bottom:25px;
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.counter div {
+text-align: center;
+}
+
+.counter h3{
+color:#94a3b8;
+font-size:14px;
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-bottom:5px;
+}
+
+.counter p{
+font-size:32px;
+font-weight:800;
+color: #f8fafc;
+}
+
+.green{
+color:#00ffd5 !important;
+text-shadow: 0 0 10px rgba(0, 255, 213, 0.5);
+}
+
+/* বাটন স্টাইল */
+.btn{
+width:100%;
+padding:16px;
+border:none;
+border-radius:16px;
+font-size:18px;
+font-weight:700;
+color:#020617;
+cursor:pointer;
+background: linear-gradient(90deg, #00ffd5, #00b8d4);
+box-shadow: 0 4px 20px rgba(0, 255, 213, 0.4);
+transition: all 0.3s ease;
+letter-spacing: 0.5px;
+}
+
+.btn:hover:not(:disabled){
+transform: translateY(-2px);
+box-shadow: 0 6px 25px rgba(0, 255, 213, 0.6);
+}
+
+.btn:disabled{
+background: #334155;
+color: #94a3b8;
+box-shadow: none;
+cursor:not-allowed;
+}
+
+</style>
+
 </head>
 <body>
 
-  <div class="box">
-    <h2>অনুগ্রহ করে ৫ সেকেন্ড অপেক্ষা করুন</h2>
-    <h1 id="count">5</h1>
+<div class="box">
 
-    <!-- Inline Style সহ আপনার ভিডিও বাটন -->
-    <button id="videoBtn"
-      style="display:none;width:100%;padding:14px 25px;background:#16a34a;color:#fff;border:none;border-radius:8px;font-size:18px;cursor:pointer;"
-      onclick="window.location.href='https://t.me/+6WMf5P3PMaowZjk1';">
-      ▶️ এখন ভিডিও দেখুন
-    </button>
+<h1>🔒 প্রিমিয়াম ভিডিওটি লক করা!</h1>
 
-    <!-- Ad Unit 1: 160x300 Banner -->
-    <div class="ad-container">
-      <script>
-        atOptions = {
-          'key' : '70fd4db109ab5e7613597088fd0a1733',
-          'format' : 'iframe',
-          'height' : 300,
-          'width' : 160,
-          'params' : {}
-        };
-      </script>
-      <script src="https://www.highperformanceformat.com/70fd4db109ab5e7613597088fd0a1733/invoke.js"></script>
-    </div>
+<div class="info">
+ভিডিওটি দেখতে আপনাকে <span>১ টি</span> অ্যাড দেখতে হবে।<br>
+প্রতিটি অ্যাড <span class="yellow">২০ সেকেন্ড</span> দেখতে হবে।
+</div>
 
-    <!-- Ad Unit 2: Native / Multi-tag Ad Container -->
-    <div class="ad-container">
-      <script async="async" data-cfasync="false" src="https://pl26529058.effectivecpmnetwork.com/5fa44691fe439519a327db32cdac929c/invoke.js"></script>
-      <div id="container-5fa44691fe439519a327db32cdac929c"></div>
-    </div>
-  </div>
+<div class="adbox">
+📺 ১ টি স্পনসর্ড অ্যাড
+</div>
 
-  <script>
-    let sec = 5;
+<div class="counter">
 
-    const timer = setInterval(function () {
-      sec--;
-      document.getElementById("count").innerText = sec;
+<div>
+<h3>মোট অ্যাড</h3>
+<p>১</p>
+</div>
 
-      if (sec <= 0) {
-        clearInterval(timer);
-        document.getElementById("count").innerHTML = "✅ ভিডিও আনলক হয়েছে";
-        document.getElementById("videoBtn").style.display = "block";
-      }
-    }, 1000);
-  </script>
+<div>
+<h3>দেখা হয়েছে</h3>
+<p class="green" id="count">০</p>
+</div>
+
+</div>
+
+<button id="actionBtn" class="btn">
+অ্যাড দেখুন
+</button>
+
+</div>
+
+<script>
+
+const adLink = "https://www.effectivecpmnetwork.com/rxpxf1ikn?key=14d3589a10b3e9d095c578a9e5a2d70e";
+const videoLink = "https://t.me/+6WMf5P3PMaowZjk1";
+
+let adSeen = localStorage.getItem("adSeen");
+let isWaiting = false;
+
+const btn = document.getElementById("actionBtn");
+const count = document.getElementById("count");
+
+// পূর্বে অ্যাড দেখা হয়ে থাকলে
+if(adSeen === "true"){
+    btn.innerHTML = "▶ এখন ভিডিও দেখুন";
+    count.innerHTML = "১";
+}
+
+btn.onclick = function(){
+
+    if(localStorage.getItem("adSeen") === "true"){
+        window.location.href = videoLink;
+    } 
+    else if(!isWaiting){
+        isWaiting = true;
+        
+        window.open(adLink, "_blank");
+
+        let timeLeft = 20;
+        btn.disabled = true;
+        btn.innerHTML = `অপেক্ষা করুন (${timeLeft}s)`;
+
+        let timer = setInterval(function(){
+            timeLeft--;
+            if(timeLeft > 0){
+                btn.innerHTML = `অপেক্ষা করুন (${timeLeft}s)`;
+            } else {
+                clearInterval(timer);
+                localStorage.setItem("adSeen", "true");
+                btn.disabled = false;
+                btn.innerHTML = "▶ এখন ভিডিও দেখুন";
+                count.innerHTML = "১";
+                isWaiting = false;
+            }
+        }, 1000);
+    }
+
+};
+
+</script>
 
 </body>
 </html>
